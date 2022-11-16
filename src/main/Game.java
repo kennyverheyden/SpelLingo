@@ -1,5 +1,6 @@
 package main;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Game {
 
@@ -7,11 +8,17 @@ public class Game {
 		// TODO Auto-generated method stub
 
 
-	DBConnect connection = new DBConnect();
-	
-	connection.createConnection();
+		DBConnect myDBConnection = new DBConnect();
 
+		//myDBConnection.testConnection();
+		myDBConnection.retrieveData();
+
+		ArrayList<String> woorden = myDBConnection.retrieveData();
+
+		for(int i=0;i<woorden.size();i++)
+		{
+			System.out.println(woorden.get(i));
+		}
 
 	}
-
 }
