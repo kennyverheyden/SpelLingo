@@ -6,27 +6,27 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/bin/ucanaccess/commons-lang-2.6.jar">
+	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/src/ucanaccess/commons-lang-2.6.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/bin/ucanaccess/commons-logging-1.2.jar">
+	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/src/ucanaccess/commons-logging-1.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/bin/ucanaccess/hsqldb-2.4.0.jar">
+	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/src/ucanaccess/hsqldb-2.4.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/bin/ucanaccess/jackcess-2.1.8.jar">
+	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/src/ucanaccess/jackcess-2.1.8.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/bin/ucanaccess/ucanaccess-4.0.2.jar">
+	<classpathentry kind="lib" path="C:/Users/dejav/eclipse-workspace/SpelLingo/src/ucanaccess/ucanaccess-4.0.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
