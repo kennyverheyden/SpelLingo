@@ -1,4 +1,4 @@
-package main;
+package classes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,7 +15,7 @@ public class DBConnect {
 	String sqlQuery;
 
 	public DBConnect() {
-		msAccDB = "jdbc:ucanaccess://src/main/resources/Woorden.accdb";	
+		msAccDB = "jdbc:ucanaccess://src/resources/Woorden.accdb";	
 		sqlQuery="select Woord from Woorden";
 	}
 

@@ -1,10 +1,11 @@
 package main;
-import java.util.ArrayList;
+
+import classes.Word;
 
 public class Game {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 
 
 	Word word = new Word();
