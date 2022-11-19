@@ -2,7 +2,7 @@ package main;
 
 import classes.Word;
 
-public class Game {
+public class Main {
 
 	public static void main(String[] args) {
 	
