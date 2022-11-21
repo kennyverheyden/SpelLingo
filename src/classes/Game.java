@@ -18,8 +18,9 @@ public class Game {
 		char[] solutionC = {'*','*','*','*','*'};//Bijhouden geraden oplossing, letters op juiste plaats = woord
 		boolean win=false; //Spel beëndigen wanneer het woord is geraden
 		boolean existingCharCheck = false; //Bijhouden of minstens een letter van andere positie werd geraden voor sysout melding
-		
-		System.out.println(ConsoleColors.BLUE_BOLD + word +" \n"); //Oplossing
+		char[] inputC = new char[5];
+
+		//System.out.println(ConsoleColors.BLUE_BOLD + word +" \n"); //Oplossing
 		System.out.println(ConsoleColors.BLUE+"Raad het woord bestaande uit vijf letters"+ConsoleColors.RESET);
 		System.out.println(ConsoleColors.BLUE_BOLD+" * * * * * \n"+ConsoleColors.RESET);
 
@@ -27,15 +28,22 @@ public class Game {
 		do // zolang rondes (rounds) en niet gewonnen (win)
 		{
 			// Geef antwoord in
-			System.out.print(ConsoleColors.PURPLE_BOLD +" | Kans "+rounds+"/"+max_rounds+" | : "+ConsoleColors.RESET);
+			if(rounds==1)
+			{
+			System.out.print(ConsoleColors.PURPLE_BOLD +" | Start met een woord van vijf letters. Je hebt "+max_rounds+" kansen om te raden: "+ConsoleColors.RESET);
+			}
+			else
+			{
+			System.out.print(ConsoleColors.PURPLE_BOLD +"| Kans "+rounds+"/"+max_rounds+" | : "+ConsoleColors.RESET);
+			}
 			String inputString = (input.nextLine().toString().toUpperCase());
 			while (inputString.length()!=5){
-				System.out.println(ConsoleColors.PURPLE_BOLD + "     Voer een geldig vijf letter woord in:"+ConsoleColors.RESET);
-				inputString = (input.nextLine().toString());
+				System.out.println(ConsoleColors.PURPLE_BOLD + "                                        Voer een geldig vijf letter woord in:"+ConsoleColors.RESET);
+				inputString = (input.nextLine().toString().toUpperCase());
 			}
 
 			// Controleer antwoord
-			char[] inputC = inputString.toCharArray();
+			inputC = inputString.toCharArray();
 			for(int i = 0;i<wordC.length;i++)
 			{
 				if(inputC[i]==wordC[i])
@@ -67,28 +75,45 @@ public class Game {
 			}
 			else
 			{
-				// Reeds geraden letters weergeven van de juiste positie
-				System.out.print(ConsoleColors.GREEN_BOLD+" | "+ConsoleColors.BLACK);
-				for(int i=0;i<inputC.length;i++)
-				{
-					System.out.print(inputC[i]+" ");
-				}
-				System.out.print(ConsoleColors.GREEN_BOLD+" | Geraden: ");
-				for(int i =0;i<solutionC.length;i++)
-				{
-					System.out.print(ConsoleColors.BLUE_BOLD+solutionC[i]+" "+ConsoleColors.RESET);
-				}
-				System.out.print(ConsoleColors.GREEN_BOLD + "|"+ConsoleColors.RESET);
+				Status(inputC,solutionC);
 
 				// Bestaande letters weergeven die in het woord voorkomen
 				if(existingCharCheck)
 				{
+					int spaceAfterChar=0;
 					System.out.print(ConsoleColors.YELLOW_BOLD+" Andere plaats: ");
+					StringBuilder existingB = new StringBuilder();
 					for(int i=0;i<existingC.length;i++)
 					{
+						boolean check_double=false;
 						if(existingC[i]!=' ')
 						{
-							System.out.print(existingC[i]+" ");
+							for(int j=0;j<i;j++)
+							{
+								if(existingC[j]==existingC[i])
+								{
+									check_double=true;
+								}
+							}
+							if(!check_double) {
+								existingB.append(existingC[i]);
+								existingB.append(" ");
+							}
+							else
+							{
+								spaceAfterChar=spaceAfterChar+2;
+							}
+						}
+						else
+						{
+							if(inputC[i]!=solutionC[i])
+							{
+								spaceAfterChar=spaceAfterChar+2;
+							}
+							else
+							{
+								spaceAfterChar=spaceAfterChar+2;
+							}
 						}
 					}
 					//bestaande letters van andere plaats, lijst leegmaken
@@ -96,11 +121,17 @@ public class Game {
 					{
 						existingC[i]=' ';
 					}
+					System.out.print(existingB.toString());
+					// formatting: dynamisch spaties toevoegen aan de hand van de getoonde letters
+					for(int i=0;i<spaceAfterChar;i++)
+					{
+						System.out.print(" ");
+					}
 					existingCharCheck=false;
 				}
 				else
 				{
-					System.out.print(ConsoleColors.GREEN_BOLD +" Geen andere plaats letters "+ConsoleColors.RESET);
+					System.out.print(ConsoleColors.GREEN_BOLD +" Andere plaats: geen      "+ConsoleColors.RESET);
 				}
 
 				rounds++; // Gespeelde ronde
@@ -110,11 +141,29 @@ public class Game {
 
 		if(win)
 		{
-			System.out.println(ConsoleColors.BLUE_BOLD +" \nProficiat, je hebt het woord: "+word+" volledig geraden"+ConsoleColors.RESET);
+			Status(inputC,solutionC);
+			System.out.println(ConsoleColors.BLUE_BOLD +" \n\nProficiat, je hebt het woord: "+word+" volledig geraden"+ConsoleColors.RESET);
 		}
 		else
 		{
-			System.out.println(ConsoleColors.BLUE_BOLD +" \nJammer, je hebt het woord: "+word+" niet geraden"+ConsoleColors.RESET);
+			System.out.println(ConsoleColors.BLUE_BOLD +" \n\nJammer, je hebt het woord: "+word+" niet geraden"+ConsoleColors.RESET);
 		}
 	}
+
+	// Reeds geraden letters weergeven van de juiste positie
+	private static void Status(char[] inputC, char[] solutionC)
+	{
+		System.out.print(ConsoleColors.GREEN_BOLD+" | "+ConsoleColors.BLACK);
+		for(int i=0;i<inputC.length;i++)
+		{
+			System.out.print(inputC[i]+" ");
+		}
+		System.out.print(ConsoleColors.GREEN_BOLD+" | Geraden: ");
+		for(int i =0;i<solutionC.length;i++)
+		{
+			System.out.print(ConsoleColors.BLUE_BOLD+solutionC[i]+" "+ConsoleColors.RESET);
+		}
+		System.out.print(ConsoleColors.GREEN_BOLD + "|"+ConsoleColors.RESET);
+	}
+
 }
