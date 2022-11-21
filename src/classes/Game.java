@@ -24,8 +24,8 @@ public class Game {
 
 		//Welkom bericht
 		//System.out.println(ConsoleColors.BLUE_BOLD + word +" \n"); //Oplossing voor programma test
-		System.out.println(ConsoleColors.BLUE+"Raad het woord bestaande uit vijf letters"+ConsoleColors.RESET);
-		System.out.println(ConsoleColors.BLUE_BOLD+" * * * * * \n"+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.BLUE+"\n  Raad het woord bestaande uit vijf letters"+ConsoleColors.RESET);
+		System.out.println(ConsoleColors.BLUE_BOLD+"  * * * * * \n"+ConsoleColors.RESET);
 
 
 		do // zolang rondes (rounds) en niet gewonnen (win)
