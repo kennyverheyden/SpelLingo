@@ -38,7 +38,14 @@ public class Game {
 			}
 			else
 			{
-				System.out.print(ConsoleColors.PURPLE_BOLD +"| Kans "+rounds+"/"+max_rounds+" | : "+ConsoleColors.RESET);
+				String space;
+				if(rounds<10) {
+					space=" ";
+				}
+				else{
+					space="";
+				}
+				System.out.print(ConsoleColors.PURPLE_BOLD +"| Kans "+space+rounds+"/"+max_rounds+" | : "+ConsoleColors.RESET);
 			}
 			String inputString = (input.nextLine().toString().toUpperCase()); // Antwoord van gebruiker opvangen
 			exit = inputString.toLowerCase(); // wordt verder in programma vergeleken met variabele exitWord (stopwoord) om te verlaten
@@ -155,12 +162,13 @@ public class Game {
 			if(win)
 			{
 				Status(inputC,solutionC);
-				System.out.println(ConsoleColors.BLUE_BOLD +" \n\nProficiat, je hebt het woord: "+word+" volledig geraden"+ConsoleColors.RESET);
+				System.out.println(ConsoleColors.BLUE_BOLD +"\n\n  Proficiat, je hebt het woord: "+word+" volledig geraden"+ConsoleColors.RESET);
 			}
 			else
 			{
-				System.out.println(ConsoleColors.BLUE_BOLD +" \n\nJammer, je hebt het woord: "+word+" niet geraden"+ConsoleColors.RESET);
+				System.out.println(ConsoleColors.BLUE_BOLD +"\n\n  Jammer, je hebt het woord: "+word+" niet geraden"+ConsoleColors.RESET);
 			}
+			System.out.println(ConsoleColors.PURPLE_BOLD +"\n  **************************************************** "+ConsoleColors.RESET);
 		}
 	}
 
