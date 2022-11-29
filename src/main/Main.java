@@ -28,19 +28,29 @@ public class Main {
 	{
 		Game game = new Game();
 		Word word = new Word();
-		Scanner userinput = new Scanner(System.in);
+		Scanner userInput = new Scanner(System.in);
 		boolean exitProgram = false;
+		boolean validInput = false;
 		int userChose=0;
 
 		do
 		{
-			System.out.println(ConsoleColors.BLUE_BOLD);
-			System.out.println("     1. Spelen\n");
-			System.out.println("     2. Toepassing verlaten\n");
-			System.out.println(ConsoleColors.RESET);
-
-			System.out.print("  Keuze: ");
-			userChose=userinput.nextInt();
+			System.out.println("     1. Play\n");
+			System.out.println("     2. Exit the game\n");
+			do
+			{
+				try
+				{
+					System.out.print("  Kueze: ");
+					userChose=userInput.nextInt();
+					validInput=true;
+				}
+				catch(Exception e){
+					userInput.next();
+					System.out.println("Enter valid number\n");
+				}
+			}
+			while(!validInput);
 
 			switch(userChose) {
 			case 1:
