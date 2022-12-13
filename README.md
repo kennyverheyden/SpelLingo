@@ -1,7 +1,7 @@
 # SpelLingo
 2nd Java console project - mini game in Dutch
 
-Woord raadspel in het Nederlands
+Woord raadspel in het Nederlands<br>
 Word guessing game in Dutch
 
 - Guess the five letter random word
