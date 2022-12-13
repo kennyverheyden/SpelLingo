@@ -1,6 +1,8 @@
 # SpelLingo
 2nd Java console project - mini game in Dutch
 
+Word guessing game in Dutch
+
 - Guess the five letter random word
 - 10 chances to guess
 - Show play status after each try:<br>
